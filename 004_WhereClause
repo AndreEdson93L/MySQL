@@ -1,0 +1,30 @@
+use sql_store;
+
+-- Comparison operator (WHERE Clause)
+-- > >= < <= = != <>
+
+select *
+from Customers
+where points > 3000;
+
+select *
+from Customers
+where state = 'VA';
+
+select *
+from Customers
+where state <> 'VA';
+
+select *
+from Customers
+where birth_date > '1999-01-01';
+
+-- Get the orders placed this yearordersorder_date
+
+select * 
+from orders
+where order_date > '2018-12-31';
+
+select * 
+from orders
+where order_date >= '2019-01-01';
