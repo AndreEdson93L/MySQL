@@ -1,0 +1,54 @@
+use sql_store;
+
+-- ^ beginning
+-- $ end
+-- | logical or
+-- [abcd]
+-- [a-f]
+
+select *
+from customers
+where last_name like '%field%';
+
+select *
+from customers
+where last_name regexp 'field';
+
+select *
+from customers
+where last_name regexp 'field$';
+
+select *
+from customers
+where last_name regexp '^field|mac|rose';
+
+select *
+from customers
+where last_name regexp '[gim]e';
+
+select *
+from customers
+where last_name regexp '[a-h]e';
+
+-- Exercise
+-- Get the customers whose
+--     first names are ELKA or AMBUR
+select * 
+from customers
+where first_name regexp 'elka|ambur';
+
+--     last names end with EY or ON
+select * 
+from customers
+where last_name regexp 'ey$|on$';
+
+--     last names start with MY or contains SE
+select *
+from customers
+where last_name regexp '^my|^se';
+
+--     last names contain B followed by R or U 
+select *
+from customers
+where last_name regexp '%b[ru]'
+
