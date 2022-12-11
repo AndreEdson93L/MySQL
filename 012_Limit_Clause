@@ -1,0 +1,19 @@
+use sql_store;
+
+select *
+from customers
+limit 3;
+
+-- limit 6, 3 means: skip the first 6 recors, then pick three records.
+select *
+from customers
+limit 6, 3;
+
+-- Exercise
+--     Get the top three loyal customers
+
+select *
+from customers
+order by points desc
+limit 3;
+
