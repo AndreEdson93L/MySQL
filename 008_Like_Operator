@@ -1,0 +1,27 @@
+use sql_store;
+
+-- b% stars with b and any characters after
+-- brush% stars with b and any characters after
+
+-- Other examples
+--    %b%, %y, _y (two characters long), _____y (five c. long)
+--    b____y
+
+select *
+from customers
+where last_name like 'b%';
+
+-- Exercise
+
+-- Get the customers whose
+--    addresses contain TRAIL or AVENUE
+--    phone numbers end with 9
+
+select *
+from customers
+where address like '%trail%' or 
+	  address like '%avenue%';
+
+select *
+from customers
+where phone like '%9';
