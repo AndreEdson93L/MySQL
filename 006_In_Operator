@@ -1,0 +1,25 @@
+use sql_store;
+
+-- Query 1
+select *
+from Customers
+where state = 'VA' or state = 'GA' or state = 'FL';
+
+-- Query 2
+select *
+from Customers
+where state in ('VA', 'FL', 'GA');
+
+-- Quary 1 == Query 2
+
+select *
+from Customers
+where state not in ('VA', 'FL', 'GA');
+
+-- Exercise
+-- Return products with
+-- 		quantity in stock equal to 49, 38, 72
+
+select *
+from products
+where quantity_in_stock in(49, 38, 72);
