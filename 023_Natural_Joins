@@ -1,0 +1,11 @@
+-- Natural joins
+-- It will join the tables looking for columns with the same name
+-- It 's better to look for other option because this command 'NATURAL JOINS' can produce unexpected results. 
+
+use sql_store;
+
+select
+    o.order_id,
+    c.first_name
+from orders o
+natural join customers c;
