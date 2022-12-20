@@ -1,0 +1,47 @@
+-- Cross Join
+-- Every record in the customer table will be combine with eery record in the product table.
+-- This is why there isn't a where clause in this query.
+
+use sqL_store;
+
+-- cross join = explicit syntax.
+
+select 
+    c.first_name as customer,
+    p.name as product
+from customers c 
+cross join products p
+order by customer;
+
+-- cross join implicit syntax.
+
+select 
+    c.first_name as customer,
+    p.name as product
+from customers c, products p 
+order by customer desc;
+
+
+-- Exercise
+-- Do a cross join between shippers and products
+--     1. using the implicit syntax 
+--     2. and then using the explicit syntax
+
+-- 1.
+
+select
+    p.name as product,
+    quantity_in_stock as stock,
+    sh.name as 'shipping company'
+from products p, shippers sh
+order by stock desc
+limit 10;
+
+select
+    p.name as product,
+    quantity_in_stock as stock,
+    sh.name as 'shipping company'
+from products p
+cross join shippers sh
+order by stock desc
+limit 10;
