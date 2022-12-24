@@ -1,0 +1,79 @@
+use sql_store;
+
+-- using the UNION operator we can combine the result of multiple queries.
+-- if the first select is selecting one column, also the second query should select only column, while we are using the UNION operator.
+
+-- first example
+select
+    order_id,
+    order_date,
+    'Active' AS status
+from orders
+where order_date >= '2019-01-01'
+union
+select
+    order_id,
+    order_date,
+    'Archived' AS status
+from orders
+where order_date < '2019-01-01';
+
+-- second example
+select first_name
+from customers
+union
+select name
+from shippers;
+
+-- third example
+select name
+from shippers
+union
+select first_name
+from customers;
+
+-- exercise
+-- customer_id | first_name | points | type
+-- point < 2000 ___ Bronze
+-- point >= 2000 and point <= 3000 ___ Silver
+-- point > 3000 ___ Gold
+-- Order the result by first name
+
+-- first solutiom
+select
+    customer_id,
+    first_name,
+    points,
+    case
+         when points <= 2000 then 'Bronze'
+         when points <= 3000 then 'Silver'
+         else 'Gold'
+       end as type
+from customers
+order by first_name;
+
+-- second solution
+select
+    customer_id,
+    first_name,
+    points,
+    'Bronze' as type
+from customers
+where points < 2000
+union
+select
+    customer_id,
+    first_name,
+    points,
+    'Silver' as type
+from customers
+where points between 2000 and 3000
+union
+select
+    customer_id,
+    first_name,
+    points,
+    'Gold' as type
+from customers
+where points > 3000
+order by first_name;
