@@ -1,0 +1,28 @@
+USE sql_store;
+
+INSERT INTO customers
+VALUES (
+    DEFAULT, 
+    'Eva', 
+    'Green', 
+    '1990-01-01', 
+    NULL,
+    'La Vie En Rose',
+    'Paris',
+    'FR',
+    1345);
+    
+INSERT INTO customers (
+    first_name, 
+    last_name, 
+    birth_date, 
+    address, 
+    city, 
+    state)
+VALUES (
+    'Ya',
+    'Nina',
+    '1992-01-01',
+    'Blues House Boelevard',
+    'New York',
+    'US');
