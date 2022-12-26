@@ -1,0 +1,14 @@
+INSERT INTO shippers (name)
+VALUES ('Shippers1'),
+       ('Shippers2'),
+       ('Shippers3'),
+       ('Shippers4');
+
+-- Exercise
+-- Insert three row in the products table
+
+INSERT INTO products (name, quantity_in_stock, unit_price)
+VALUES ('Computer', 56, 75),
+       ('Monna Lisa', 1, 99),
+       ('Watch', 12, 12);
+
